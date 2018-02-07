@@ -1,0 +1,60 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.QuestionFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:gravity="center"
+            android:text="Вопрос 0 из 40"
+            android:textSize="20dp"
+            android:textColor="#424242"
+            android:id="@+id/questionNumberTextView"
+            />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxHeight="180dp"
+            android:adjustViewBounds="true"
+            android:background="@android:color/white"
+            android:id="@+id/questionImageView"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:maxLines="5"
+            android:scrollbars="vertical"
+            android:gravity="left"
+            android:text="QuestionText"
+            android:textSize="18dp"
+            android:textColor="#424242"
+            android:id="@+id/questionTextView"
+            />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:verticalSpacing="10dp"
+            android:horizontalSpacing="10dp"
+            android:padding="5dp"
+            android:stretchMode="columnWidth"
+            android:divider="@android:color/white"
+            android:fadeScrollbars="false"
+            android:id="@+id/answersListView"
+            />
+
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="0dp"
+    android:background="@drawable/main_background"
+    android:orientation="vertical"
+    tools:context="muryshkin.alexey.pdd.Activity.ProfileActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:padding="0dp"
+        android:layout_margin="0dp"
+        android:src="@drawable/car1"
+        android:background="#00000000"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:id="@+id/carImageView"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="-3dp"
+        android:gravity="center"
+        android:text="Пользователь"
+        android:textSize="20dp"
+        android:textColor="#FFFFFF"
+        android:id="@+id/usernameTextView"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="-3dp"
+        android:layout_marginTop="-3dp"
+        android:gravity="center"
+        android:text="Пешеход"
+        android:textSize="20dp"
+        android:textColor="#f44336"
+        android:id="@+id/titleTextView"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="-3dp"
+        android:gravity="center"
+        android:text="Отсутствует"
+        android:textSize="20dp"
+        android:textColor="#FFFFFF"
+        android:id="@+id/carTextView"
+        />
+
+    <RelativeLayout
+        android:layout_width="160dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:padding="0dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/layout_design_score"
+        >
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="12dp"
+            android:layout_marginBottom="15dp"
+            android:src="@drawable/yellow_star"
+            android:background="#00000000"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="15dp"
+            android:src="@drawable/yellow_star"
+            android:background="#00000000"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="-8dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="-8dp"
+                android:layout_marginBottom="-4dp"
+                android:text="0"
+                android:textSize="40dp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:id="@+id/experienceTextView"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-4dp"
+                android:gravity="center"
+                android:text="очков"
+                android:textSize="20dp"
+                android:textColor="#FFFFFF"
+                android:id="@+id/scoreWordTextView"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:gravity="center"
+        android:text="Вам осталось набрать 0 очков до следующего автомобиля Велосипед"
+        android:textSize="19dp"
+        android:textColor="#FFFFFF"
+        android:id="@+id/experienceLeftTextView"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="40dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:id="@+id/favouriteLinearLayout"
+            >
+
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/empty_star"
+                android:background="#00000000"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Избранное"
+                android:textSize="16dp"
+                android:textColor="#FFFFFF"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="40dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:id="@+id/mistakesLinearLayout"
+            >
+
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/pencil"
+                android:background="#00000000"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Мои ошибки"
+                android:textSize="16dp"
+                android:textColor="#FFFFFF"
+                />
+
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#d32f2f"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:id="@+id/logoutLinearLayout"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:gravity="center"
+                android:text="Выйти"
+                android:textSize="15dp"
+                android:textColor="#FFFFFF"
+                />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:src="@drawable/logout"
+                android:background="#00000000"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                />
+        </LinearLayout>
+
+    </RelativeLayout>
+    
+</LinearLayout>

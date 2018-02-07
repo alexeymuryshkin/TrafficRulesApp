@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background"
+    tools:context=".Activity.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="70dp"
+        android:id="@+id/mainLinearLayout"
+        >
+
+        <Button
+            android:layout_width="190dp"
+            android:layout_height="190dp"
+            android:background="@drawable/button_design_main_test"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:layout_margin="15dp"
+            android:text="ТЕСТ"
+            android:textSize="48dp"
+            android:textColor="@android:color/white"
+            android:id="@+id/testButton"
+            />
+
+        <Button
+            android:layout_width="190dp"
+            android:layout_height="190dp"
+            android:background="@drawable/button_design_main_pdd"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="15dp"
+            android:text="ТЕОРИЯ"
+            android:textSize="42dp"
+            android:textColor="@android:color/white"
+            android:id="@+id/theoryButton"
+            />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/preferencesRelativeLayout"
+        >
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_account_circle_white_48dp"
+            android:background="#00000000"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:id="@+id/profileButton"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#90000000"
+        android:paddingTop="70dp"
+        android:orientation="vertical"
+        android:id="@+id/searchCoverLinearLayout"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#EEEEEE"
+            android:textSize="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/coincidenceTextView"
+            />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/searchResultListView"
+            />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/searchRelativeLayout"
+        >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/edittext_design_search"
+            android:hint="Поиск..."
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:id="@+id/searchEditText"
+        />
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_close_white_48dp"
+            android:background="#00000000"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:id="@+id/deleteButton"
+            />
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/loading_spinner"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminateTint="@android:color/white"
+        android:layout_centerInParent="true"
+        />
+
+</RelativeLayout>

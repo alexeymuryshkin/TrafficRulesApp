@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TrafficRules.kz</string>
+    <string name="login_button_name">Login</string>
+    <string name="complete_button_name">Complete Test</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
