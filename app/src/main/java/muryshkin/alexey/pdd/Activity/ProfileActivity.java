@@ -1,11 +1,10 @@
 package muryshkin.alexey.pdd.Activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -18,7 +17,6 @@ import com.backendless.exceptions.BackendlessFault;
 import java.util.ArrayList;
 
 import muryshkin.alexey.pdd.Data.DataHolder;
-import muryshkin.alexey.pdd.Helper.ClearCache;
 import muryshkin.alexey.pdd.R;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -45,7 +43,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        logoutLinearLayout = (LinearLayout) findViewById(R.id.logoutLinearLayout);
+        logoutLinearLayout = findViewById(R.id.logoutLinearLayout);
         logoutLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,14 +51,14 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        usernameTextView = (TextView) findViewById(R.id.usernameTextView);
+        usernameTextView = findViewById(R.id.usernameTextView);
         usernameTextView.setText(Backendless.UserService.CurrentUser().getProperty("name").toString());
 
         totalScore = (Integer) Backendless.UserService.CurrentUser().getProperty("totalScore");
-        experienceTextView = (TextView) findViewById(R.id.experienceTextView);
+        experienceTextView = findViewById(R.id.experienceTextView);
         experienceTextView.setText("" + totalScore);
 
-        scoreWordTextView = (TextView) findViewById(R.id.scoreWordTextView);
+        scoreWordTextView = findViewById(R.id.scoreWordTextView);
         if (totalScore % 100 != 11 && totalScore % 10 == 1)
             scoreWordTextView.setText("очко");
         else if ((totalScore % 100 < 12 || totalScore % 100 > 14) && (totalScore % 10 >= 2 && totalScore % 10 <= 4))
@@ -92,9 +90,4 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    protected void onDestroy() {
-        ClearCache.deleteCache(this);
-        super.onDestroy();
-    }
 }

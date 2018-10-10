@@ -1,14 +1,13 @@
 package muryshkin.alexey.pdd.Activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,7 +19,6 @@ import com.backendless.exceptions.BackendlessFault;
 
 import muryshkin.alexey.pdd.Data.Const;
 import muryshkin.alexey.pdd.Data.DataHolder;
-import muryshkin.alexey.pdd.Helper.ClearCache;
 import muryshkin.alexey.pdd.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -54,12 +52,12 @@ public class LoginActivity extends AppCompatActivity {
 
         Backendless.initApp(this, Const.APP_ID, Const.ANDROID_KEY, Const.APP_VERSION);
 
-        loginRelativeLayout = (RelativeLayout) findViewById(R.id.loginRelativeLayout);
-        registrationRelativeLayout = (RelativeLayout) findViewById(R.id.registationRelativeLayout);
+        loginRelativeLayout = findViewById(R.id.loginRelativeLayout);
+        registrationRelativeLayout = findViewById(R.id.registationRelativeLayout);
 
         setLayout(1);
 
-        appImageView = (ImageView) findViewById(R.id.appImageView);
+        appImageView = findViewById(R.id.appImageView);
         appImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,10 +65,10 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        usernameEditText = (EditText) findViewById(R.id.usernameEditText);
-        passwordEditText = (EditText) findViewById(R.id.passwordEditText);
+        usernameEditText = findViewById(R.id.usernameEditText);
+        passwordEditText = findViewById(R.id.passwordEditText);
 
-        loginButton = (Button) findViewById(R.id.loginButton);
+        loginButton = findViewById(R.id.loginButton);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        registrationTextView = (TextView) findViewById(R.id.registrationTextView);
+        registrationTextView = findViewById(R.id.registrationTextView);
         registrationTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        backImageButton = (ImageButton) findViewById(R.id.backImageButton);
+        backImageButton = findViewById(R.id.backImageButton);
         backImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,7 +97,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        appRegImageView = (ImageView) findViewById(R.id.appImageView);
+        appRegImageView = findViewById(R.id.appImageView);
         appRegImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -107,12 +105,12 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
         
-        usernameRegEditText = (EditText) findViewById(R.id.usernameRegEditText);
-        emailRegEditText = (EditText) findViewById(R.id.emailRegEditText);
-        passwordRegEditText = (EditText) findViewById(R.id.passwordRegEditText);
-        retryPasswordRegEditText = (EditText) findViewById(R.id.retryPasswordRegEditText);
+        usernameRegEditText = findViewById(R.id.usernameRegEditText);
+        emailRegEditText = findViewById(R.id.emailRegEditText);
+        passwordRegEditText = findViewById(R.id.passwordRegEditText);
+        retryPasswordRegEditText = findViewById(R.id.retryPasswordRegEditText);
 
-        registrationButton = (Button) findViewById(R.id.registrationButton);
+        registrationButton = findViewById(R.id.registrationButton);
         registrationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -195,9 +193,4 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onDestroy() {
-        ClearCache.deleteCache(this);
-        super.onDestroy();
-    }
 }

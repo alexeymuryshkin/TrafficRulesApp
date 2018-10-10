@@ -1,15 +1,11 @@
 package muryshkin.alexey.pdd.Activity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -28,21 +24,17 @@ import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.persistence.BackendlessDataQuery;
 import com.backendless.persistence.QueryOptions;
-import com.backendless.persistence.local.UserTokenStorageFactory;
 
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
+import muryshkin.alexey.pdd.Adapter.TestListViewAdapter;
 import muryshkin.alexey.pdd.Data.DataHolder;
+import muryshkin.alexey.pdd.Data.Test;
 import muryshkin.alexey.pdd.Data.UserTestRelationship;
-import muryshkin.alexey.pdd.Helper.ClearCache;
 import muryshkin.alexey.pdd.Helper.InternetHelper;
 import muryshkin.alexey.pdd.R;
-import muryshkin.alexey.pdd.Data.Test;
-import muryshkin.alexey.pdd.Adapter.TestListViewAdapter;
 
 public class TestActivity extends AppCompatActivity {
 
@@ -59,10 +51,10 @@ public class TestActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.customized_test_action_bar);
 
-        myProgressBar = (ProgressBar) findViewById(R.id.loading_spinner);
+        myProgressBar = findViewById(R.id.loading_spinner);
         myProgressBar.setVisibility(View.VISIBLE);
 
-        backButton = (ImageButton) findViewById(R.id.backButton);
+        backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,7 +62,7 @@ public class TestActivity extends AppCompatActivity {
             }
         });
 
-        listView = (ListView) findViewById(R.id.testsListView);
+        listView = findViewById(R.id.testsListView);
 
         if (DataHolder.getDataHolder().bTests.size() == 0) {
             if (InternetHelper.isOnline())
@@ -186,7 +178,7 @@ public class TestActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 Log.d(TAG, response.toString());
-                DataHolder.getDataHolder().test = response;
+                DataHolder.getDataHolder().setTest(response);
                 onTestClick(testPosition);
             }
         }, new Response.ErrorListener() {
@@ -208,9 +200,4 @@ public class TestActivity extends AppCompatActivity {
         myProgressBar.setVisibility(View.INVISIBLE);
     }
 
-    @Override
-    protected void onDestroy() {
-        ClearCache.deleteCache(this);
-        super.onDestroy();
-    }
 }

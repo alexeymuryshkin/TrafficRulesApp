@@ -1,8 +1,8 @@
 package muryshkin.alexey.pdd.Activity;
 
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -17,7 +17,6 @@ import java.util.List;
 
 import muryshkin.alexey.pdd.Adapter.ArticlesAdapter;
 import muryshkin.alexey.pdd.Data.DataHolder;
-import muryshkin.alexey.pdd.Helper.ClearCache;
 import muryshkin.alexey.pdd.R;
 
 public class MoreInformationActivity extends AppCompatActivity {
@@ -43,7 +42,7 @@ public class MoreInformationActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
             getSupportActionBar().setCustomView(R.layout.customized_traffic_signs_action_bar);
         }
-        backButton = (ImageButton) findViewById(R.id.backButton);
+        backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,7 +50,7 @@ public class MoreInformationActivity extends AppCompatActivity {
             }
         });
 
-        testTextView = (TextView) findViewById(R.id.testTextView);
+        testTextView = findViewById(R.id.testTextView);
 
         try {
             if (fromActivity.equals("PddActivity"))
@@ -62,7 +61,7 @@ public class MoreInformationActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        listView = (ListView) findViewById(R.id.articlesListView);
+        listView = findViewById(R.id.articlesListView);
 
         try {
             if (fromActivity.equals("PddActivity"))
@@ -101,9 +100,4 @@ public class MoreInformationActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
     }
 
-    @Override
-    protected void onDestroy() {
-        ClearCache.deleteCache(this);
-        super.onDestroy();
-    }
 }

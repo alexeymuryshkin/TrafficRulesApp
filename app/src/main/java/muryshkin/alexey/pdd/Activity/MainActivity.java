@@ -1,8 +1,8 @@
 package muryshkin.alexey.pdd.Activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -18,12 +18,6 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.backendless.Backendless;
-import com.backendless.BackendlessUser;
-import com.backendless.async.callback.AsyncCallback;
-import com.backendless.exceptions.BackendlessFault;
-import com.backendless.persistence.local.UserTokenStorageFactory;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,11 +25,10 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import muryshkin.alexey.pdd.Adapter.SearchResultsAdapter;
 import muryshkin.alexey.pdd.Data.Const;
 import muryshkin.alexey.pdd.Data.DataHolder;
-import muryshkin.alexey.pdd.Helper.ClearCache;
 import muryshkin.alexey.pdd.R;
-import muryshkin.alexey.pdd.Adapter.SearchResultsAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -65,9 +58,9 @@ public class MainActivity extends AppCompatActivity {
         Backendless.initApp(this, Const.APP_ID, Const.ANDROID_KEY, Const.APP_VERSION);
         Const.context = getApplicationContext();
 
-        theoryButton = (Button) findViewById(R.id.theoryButton);
-        testButton = (Button) findViewById(R.id.testButton);
-        profileButton = (ImageButton) findViewById(R.id.profileButton);
+        theoryButton = findViewById(R.id.theoryButton);
+        testButton = findViewById(R.id.testButton);
+        profileButton = findViewById(R.id.profileButton);
         theoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,17 +87,17 @@ public class MainActivity extends AppCompatActivity {
         profileButton.setVisibility(View.INVISIBLE);
         checkForLogin();
 
-        searchCoverLinearLayout = (LinearLayout) findViewById(R.id.searchCoverLinearLayout);
-        mainLinearLayout = (LinearLayout) findViewById(R.id.mainLinearLayout);
-        preferencesRelativeLayout = (RelativeLayout) findViewById(R.id.preferencesRelativeLayout);
-        searchRelativeLayout = (RelativeLayout) findViewById(R.id.searchRelativeLayout);
+        searchCoverLinearLayout = findViewById(R.id.searchCoverLinearLayout);
+        mainLinearLayout = findViewById(R.id.mainLinearLayout);
+        preferencesRelativeLayout = findViewById(R.id.preferencesRelativeLayout);
+        searchRelativeLayout = findViewById(R.id.searchRelativeLayout);
 
-        coincidenceTextView = (TextView) findViewById(R.id.coincidenceTextView);
+        coincidenceTextView = findViewById(R.id.coincidenceTextView);
 
-        myProgressBar = (ProgressBar) findViewById(R.id.loading_spinner);
+        myProgressBar = findViewById(R.id.loading_spinner);
         myProgressBar.setVisibility(View.INVISIBLE);
 
-        deleteButton = (ImageButton) findViewById(R.id.deleteButton);
+        deleteButton = findViewById(R.id.deleteButton);
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -115,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        searchResultListView = (ListView) findViewById(R.id.searchResultListView);
+        searchResultListView = findViewById(R.id.searchResultListView);
         searchResultListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -124,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        searchEditText = (EditText) findViewById(R.id.searchEditText);
+        searchEditText = findViewById(R.id.searchEditText);
         searchEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -381,9 +374,4 @@ public class MainActivity extends AppCompatActivity {
         myProgressBar.setVisibility(View.INVISIBLE);
     }
 
-    @Override
-    protected void onDestroy() {
-        ClearCache.deleteCache(this);
-        super.onDestroy();
-    }
 }

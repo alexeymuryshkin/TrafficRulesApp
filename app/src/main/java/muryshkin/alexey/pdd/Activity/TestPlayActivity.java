@@ -1,35 +1,24 @@
 package muryshkin.alexey.pdd.Activity;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+import muryshkin.alexey.pdd.Adapter.QuestionsAdapter;
 import muryshkin.alexey.pdd.Data.DataHolder;
 import muryshkin.alexey.pdd.Fragment.QuestionFragment;
-import muryshkin.alexey.pdd.Adapter.QuestionsAdapter;
-import muryshkin.alexey.pdd.Helper.ClearCache;
 import muryshkin.alexey.pdd.R;
 
 public class TestPlayActivity extends AppCompatActivity {
@@ -52,7 +41,7 @@ public class TestPlayActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.customized_test_play_action_bar);
 
-        backButton = (ImageButton) findViewById(R.id.backButton);
+        backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,10 +49,10 @@ public class TestPlayActivity extends AppCompatActivity {
             }
         });
 
-        actionBarTextView = (TextView) findViewById(R.id.actionBarTextView);
+        actionBarTextView = findViewById(R.id.actionBarTextView);
         actionBarTextView.setText(DataHolder.getDataHolder().bTests.get(testPosition).getTitle());
 
-        viewPager = (ViewPager) findViewById(R.id.questionsViewPager);
+        viewPager = findViewById(R.id.questionsViewPager);
 
         try {
             displayInfo();
@@ -72,7 +61,7 @@ public class TestPlayActivity extends AppCompatActivity {
         }
     }
 
-    private void displayInfo() throws JSONException {
+    private void displayInfo() {
         ArrayList<Fragment> fragments = new ArrayList<>();
         DataHolder.getDataHolder().answers = new LinkedList<>();
         DataHolder.getDataHolder().correctAnswers = new LinkedList<>();
@@ -116,9 +105,4 @@ public class TestPlayActivity extends AppCompatActivity {
         viewPager.setCurrentItem(0, true);
     }
 
-    @Override
-    protected void onDestroy() {
-        ClearCache.deleteCache(this);
-        super.onDestroy();
-    }
 }

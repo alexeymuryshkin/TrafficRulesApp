@@ -43,7 +43,7 @@ public class TrafficSignsChaptersListAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
-        ViewHolder viewHolder = null;
+        ViewHolder viewHolder;
 
         if (view == null) {
             view = inflater.inflate(R.layout.row_chapter_item, viewGroup, false);
@@ -66,7 +66,7 @@ public class TrafficSignsChaptersListAdapter extends BaseAdapter {
         TextView titleTextView;
 
         public ViewHolder(View v) {
-            titleTextView = (TextView) v.findViewById(R.id.titleTextView);
+            titleTextView = v.findViewById(R.id.titleTextView);
         }
     }
 }

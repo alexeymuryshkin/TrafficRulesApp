@@ -1,9 +1,9 @@
 package muryshkin.alexey.pdd.Activity;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -18,12 +18,10 @@ import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.persistence.BackendlessDataQuery;
 import com.backendless.persistence.QueryOptions;
-import com.backendless.persistence.local.UserTokenStorageFactory;
 
 import muryshkin.alexey.pdd.Data.DataHolder;
 import muryshkin.alexey.pdd.Data.Test;
 import muryshkin.alexey.pdd.Data.UserTestRelationship;
-import muryshkin.alexey.pdd.Helper.ClearCache;
 import muryshkin.alexey.pdd.R;
 
 public class TestResultActivity extends AppCompatActivity {
@@ -50,7 +48,7 @@ public class TestResultActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.customized_test_play_action_bar);
 
-        backButton = (ImageButton) findViewById(R.id.backButton);
+        backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,15 +58,15 @@ public class TestResultActivity extends AppCompatActivity {
 
         testPosition = getIntent().getExtras().getInt("position");
 
-        actionBarTextView = (TextView) findViewById(R.id.actionBarTextView);
+        actionBarTextView = findViewById(R.id.actionBarTextView);
         actionBarTextView.setText(DataHolder.getDataHolder().bTests.get(testPosition).getTitle());
 
-        testNumberTextView = (TextView) findViewById(R.id.testNumberTextView);
+        testNumberTextView = findViewById(R.id.testNumberTextView);
         testNumberTextView.setText("" + (testPosition + 1));
 
-        firstStarImageView = (ImageView) findViewById(R.id.firstStarImageView);
-        secondStarImageView = (ImageView) findViewById(R.id.secondStarImageView);
-        thirdStarImageView = (ImageView) findViewById(R.id.thirdStarImageView);
+        firstStarImageView = findViewById(R.id.firstStarImageView);
+        secondStarImageView = findViewById(R.id.secondStarImageView);
+        thirdStarImageView = findViewById(R.id.thirdStarImageView);
 
         if (DataHolder.getDataHolder().answered > 0 && DataHolder.getDataHolder().result * 100 / DataHolder.getDataHolder().answered >= 40) {
             firstStarImageView.setImageResource(getResources().getIdentifier("@drawable/yellow_star", null, getPackageName()));
@@ -84,14 +82,14 @@ public class TestResultActivity extends AppCompatActivity {
 
         saveResult();
         
-        resultTextView = (TextView) findViewById(R.id.resultTextView);
+        resultTextView = findViewById(R.id.resultTextView);
 
         if (DataHolder.getDataHolder().result == 1)
             resultTextView.setText(DataHolder.getDataHolder().result + " правильный ответ из " + DataHolder.getDataHolder().answers.size());
         else
             resultTextView.setText(DataHolder.getDataHolder().result + " правильных ответов из " + DataHolder.getDataHolder().answers.size());
 
-        returnButton = (Button) findViewById(R.id.returnButton);
+        returnButton = findViewById(R.id.returnButton);
         returnButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,7 +97,7 @@ public class TestResultActivity extends AppCompatActivity {
             }
         });
 
-        mainActivityButton = (Button) findViewById(R.id.mainActivityButton);
+        mainActivityButton = findViewById(R.id.mainActivityButton);
         mainActivityButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -195,9 +193,4 @@ public class TestResultActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    @Override
-    protected void onDestroy() {
-        ClearCache.deleteCache(this);
-        super.onDestroy();
-    }
 }
